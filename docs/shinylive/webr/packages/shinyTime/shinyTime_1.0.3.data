@@ -1,0 +1,1219 @@
+Package: shinyTime
+Type: Package
+Title: A Time Input Widget for Shiny
+Version: 1.0.3
+Authors@R: person("Gerhard", "Burger", email = "burger.ga@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1062-5576"))
+Description: Provides a time input widget for Shiny. This widget allows intuitive time input in the
+    '[hh]:[mm]:[ss]' or '[hh]:[mm]' (24H) format by using a separate numeric input for each time
+    component. The interface with R uses date-time objects. See the project page for more
+    information and examples.
+License: GPL-3 | file LICENSE
+Imports: htmltools, shiny
+URL: https://burgerga.github.io/shinyTime/,
+        https://github.com/burgerga/shinyTime
+BugReports: https://github.com/burgerga/shinyTime/issues
+RoxygenNote: 7.2.1
+Encoding: UTF-8
+Language: en-US
+Suggests: testthat (>= 2.1.0), spelling, hms
+NeedsCompilation: no
+Packaged: 2022-08-19 20:56:31 UTC; gerhard
+Author: Gerhard Burger [aut, cre] (<https://orcid.org/0000-0003-1062-5576>)
+Maintainer: Gerhard Burger <burger.ga@gmail.com>
+Repository: CRAN
+Date/Publication: 2022-08-19 21:30:02 UTC
+Built: R 4.4.0; ; 2024-05-01 07:46:35 UTC; unix
+shinyTimeExample        Show the shinyTime example app
+timeInput               Create a time input
+updateTimeInput         Change a time input on the client
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+the GNU General Public License is intended to guarantee your freedom to
+share and change all versions of a program--to make sure it remains free
+software for all its users.  We, the Free Software Foundation, use the
+GNU General Public License for most of our software; it applies also to
+any other work released this way by its authors.  You can apply it to
+your programs, too.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it if you
+want it, that you can change the software or use pieces of it in new
+free programs, and that you know you can do these things.
+
+  To protect your rights, we need to prevent others from denying you
+these rights or asking you to surrender the rights.  Therefore, you have
+certain responsibilities if you distribute copies of the software, or if
+you modify it: responsibilities to respect the freedom of others.
+
+  For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must pass on to the recipients the same
+freedoms that you received.  You must make sure that they, too, receive
+or can get the source code.  And you must show them these terms so they
+know their rights.
+
+  Developers that use the GNU GPL protect your rights with two steps:
+(1) assert copyright on the software, and (2) offer you this License
+giving you legal permission to copy, distribute and/or modify it.
+
+  For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software.  For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, so that their problems will not be attributed erroneously to
+authors of previous versions.
+
+  Some devices are designed to deny users access to install or run
+modified versions of the software inside them, although the manufacturer
+can do so.  This is fundamentally incompatible with the aim of
+protecting users' freedom to change the software.  The systematic
+pattern of such abuse occurs in the area of products for individuals to
+use, which is precisely where it is most unacceptable.  Therefore, we
+have designed this version of the GPL to prohibit the practice for those
+products.  If such problems arise substantially in other domains, we
+stand ready to extend this provision to those domains in future versions
+of the GPL, as needed to protect the freedom of users.
+
+  Finally, every program is threatened constantly by software patents.
+States should not allow patents to restrict development and use of
+software on general-purpose computers, but in those that do, we wish to
+avoid the special danger that patents applied to a free program could
+make it effectively proprietary.  To prevent this, the GPL assures that
+patents cannot be used to render the program non-free.
+
+  The precise terms and conditions for copying, distribution and
+modification follow.
+
+                       TERMS AND CONDITIONS
+
+  0. Definitions.
+
+  "This License" refers to version 3 of the GNU General Public License.
+
+  "Copyright" also means copyright-like laws that apply to other kinds of
+works, such as semiconductor masks.
+
+  "The Program" refers to any copyrightable work licensed under this
+License.  Each licensee is addressed as "you".  "Licensees" and
+"recipients" may be individuals or organizations.
+
+  To "modify" a work means to copy from or adapt all or part of the work
+in a fashion requiring copyright permission, other than the making of an
+exact copy.  The resulting work is called a "modified version" of the
+earlier work or a work "based on" the earlier work.
+
+  A "covered work" means either the unmodified Program or a work based
+on the Program.
+
+  To "propagate" a work means to do anything with it that, without
+permission, would make you directly or secondarily liable for
+infringement under applicable copyright law, except executing it on a
+computer or modifying a private copy.  Propagation includes copying,
+distribution (with or without modification), making available to the
+public, and in some countries other activities as well.
+
+  To "convey" a work means any kind of propagation that enables other
+parties to make or receive copies.  Mere interaction with a user through
+a computer network, with no transfer of a copy, is not conveying.
+
+  An interactive user interface displays "Appropriate Legal Notices"
+to the extent that it includes a convenient and prominently visible
+feature that (1) displays an appropriate copyright notice, and (2)
+tells the user that there is no warranty for the work (except to the
+extent that warranties are provided), that licensees may convey the
+work under this License, and how to view a copy of this License.  If
+the interface presents a list of user commands or options, such as a
+menu, a prominent item in the list meets this criterion.
+
+  1. Source Code.
+
+  The "source code" for a work means the preferred form of the work
+for making modifications to it.  "Object code" means any non-source
+form of a work.
+
+  A "Standard Interface" means an interface that either is an official
+standard defined by a recognized standards body, or, in the case of
+interfaces specified for a particular programming language, one that
+is widely used among developers working in that language.
+
+  The "System Libraries" of an executable work include anything, other
+than the work as a whole, that (a) is included in the normal form of
+packaging a Major Component, but which is not part of that Major
+Component, and (b) serves only to enable use of the work with that
+Major Component, or to implement a Standard Interface for which an
+implementation is available to the public in source code form.  A
+"Major Component", in this context, means a major essential component
+(kernel, window system, and so on) of the specific operating system
+(if any) on which the executable work runs, or a compiler used to
+produce the work, or an object code interpreter used to run it.
+
+  The "Corresponding Source" for a work in object code form means all
+the source code needed to generate, install, and (for an executable
+work) run the object code and to modify the work, including scripts to
+control those activities.  However, it does not include the work's
+System Libraries, or general-purpose tools or generally available free
+programs which are used unmodified in performing those activities but
+which are not part of the work.  For example, Corresponding Source
+includes interface definition files associated with source files for
+the work, and the source code for shared libraries and dynamically
+linked subprograms that the work is specifically designed to require,
+such as by intimate data communication or control flow between those
+subprograms and other parts of the work.
+
+  The Corresponding Source need not include anything that users
+can regenerate automatically from other parts of the Corresponding
+Source.
+
+  The Corresponding Source for a work in source code form is that
+same work.
+
+  2. Basic Permissions.
+
+  All rights granted under this License are granted for the term of
+copyright on the Program, and are irrevocable provided the stated
+conditions are met.  This License explicitly affirms your unlimited
+permission to run the unmodified Program.  The output from running a
+covered work is covered by this License only if the output, given its
+content, constitutes a covered work.  This License acknowledges your
+rights of fair use or other equivalent, as provided by copyright law.
+
+  You may make, run and propagate covered works that you do not
+convey, without conditions so long as your license otherwise remains
+in force.  You may convey covered works to others for the sole purpose
+of having them make modifications exclusively for you, or provide you
+with facilities for running those works, provided that you comply with
+the terms of this License in conveying all material for which you do
+not control copyright.  Those thus making or running the covered works
+for you must do so exclusively on your behalf, under your direction
+and control, on terms that prohibit them from making any copies of
+your copyrighted material outside their relationship with you.
+
+  Conveying under any other circumstances is permitted solely under
+the conditions stated below.  Sublicensing is not allowed; section 10
+makes it unnecessary.
+
+  3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+
+  No covered work shall be deemed part of an effective technological
+measure under any applicable law fulfilling obligations under article
+11 of the WIPO copyright treaty adopted on 20 December 1996, or
+similar laws prohibiting or restricting circumvention of such
+measures.
+
+  When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvention
+is effected by exercising rights under this License with respect to
+the covered work, and you disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's
+users, your or third parties' legal rights to forbid circumvention of
+technological measures.
+
+  4. Conveying Verbatim Copies.
+
+  You may convey verbatim copies of the Program's source code as you
+receive it, in any medium, provided that you conspicuously and
+appropriately publish on each copy an appropriate copyright notice;
+keep intact all notices stating that this License and any
+non-permissive terms added in accord with section 7 apply to the code;
+keep intact all notices of the absence of any warranty; and give all
+recipients a copy of this License along with the Program.
+
+  You may charge any price or no price for each copy that you convey,
+and you may offer support or warranty protection for a fee.
+
+  5. Conveying Modified Source Versions.
+
+  You may convey a work based on the Program, or the modifications to
+produce it from the Program, in the form of source code under the
+terms of section 4, provided that you also meet all of these conditions:
+
+    a) The work must carry prominent notices stating that you modified
+    it, and giving a relevant date.
+
+    b) The work must carry prominent notices stating that it is
+    released under this License and any conditions added under section
+    7.  This requirement modifies the requirement in section 4 to
+    "keep intact all notices".
+
+    c) You must license the entire work, as a whole, under this
+    License to anyone who comes into possession of a copy.  This
+    License will therefore apply, along with any applicable section 7
+    additional terms, to the whole of the work, and all its parts,
+    regardless of how they are packaged.  This License gives no
+    permission to license the work in any other way, but it does not
+    invalidate such permission if you have separately received it.
+
+    d) If the work has interactive user interfaces, each must display
+    Appropriate Legal Notices; however, if the Program has interactive
+    interfaces that do not display Appropriate Legal Notices, your
+    work need not make them do so.
+
+  A compilation of a covered work with other separate and independent
+works, which are not by their nature extensions of the covered work,
+and which are not combined with it such as to form a larger program,
+in or on a volume of a storage or distribution medium, is called an
+"aggregate" if the compilation and its resulting copyright are not
+used to limit the access or legal rights of the compilation's users
+beyond what the individual works permit.  Inclusion of a covered work
+in an aggregate does not cause this License to apply to the other
+parts of the aggregate.
+
+  6. Conveying Non-Source Forms.
+
+  You may convey a covered work in object code form under the terms
+of sections 4 and 5, provided that you also convey the
+machine-readable Corresponding Source under the terms of this License,
+in one of these ways:
+
+    a) Convey the object code in, or embodied in, a physical product
+    (including a physical distribution medium), accompanied by the
+    Corresponding Source fixed on a durable physical medium
+    customarily used for software interchange.
+
+    b) Convey the object code in, or embodied in, a physical product
+    (including a physical distribution medium), accompanied by a
+    written offer, valid for at least three years and valid for as
+    long as you offer spare parts or customer support for that product
+    model, to give anyone who possesses the object code either (1) a
+    copy of the Corresponding Source for all the software in the
+    product that is covered by this License, on a durable physical
+    medium customarily used for software interchange, for a price no
+    more than your reasonable cost of physically performing this
+    conveying of source, or (2) access to copy the
+    Corresponding Source from a network server at no charge.
+
+    c) Convey individual copies of the object code with a copy of the
+    written offer to provide the Corresponding Source.  This
+    alternative is allowed only occasionally and noncommercially, and
+    only if you received the object code with such an offer, in accord
+    with subsection 6b.
+
+    d) Convey the object code by offering access from a designated
+    place (gratis or for a charge), and offer equivalent access to the
+    Corresponding Source in the same way through the same place at no
+    further charge.  You need not require recipients to copy the
+    Corresponding Source along with the object code.  If the place to
+    copy the object code is a network server, the Corresponding Source
+    may be on a different server (operated by you or a third party)
+    that supports equivalent copying facilities, provided you maintain
+    clear directions next to the object code saying where to find the
+    Corresponding Source.  Regardless of what server hosts the
+    Corresponding Source, you remain obligated to ensure that it is
+    available for as long as needed to satisfy these requirements.
+
+    e) Convey the object code using peer-to-peer transmission, provided
+    you inform other peers where the object code and Corresponding
+    Source of the work are being offered to the general public at no
+    charge under subsection 6d.
+
+  A separable portion of the object code, whose source code is excluded
+from the Corresponding Source as a System Library, need not be
+included in conveying the object code work.
+
+  A "User Product" is either (1) a "consumer product", which means any
+tangible personal property which is normally used for personal, family,
+or household purposes, or (2) anything designed or sold for incorporation
+into a dwelling.  In determining whether a product is a consumer product,
+doubtful cases shall be resolved in favor of coverage.  For a particular
+product received by a particular user, "normally used" refers to a
+typical or common use of that class of product, regardless of the status
+of the particular user or of the way in which the particular user
+actually uses, or expects or is expected to use, the product.  A product
+is a consumer product regardless of whether the product has substantial
+commercial, industrial or non-consumer uses, unless such uses represent
+the only significant mode of use of the product.
+
+  "Installation Information" for a User Product means any methods,
+procedures, authorization keys, or other information required to install
+and execute modified versions of a covered work in that User Product from
+a modified version of its Corresponding Source.  The information must
+suffice to ensure that the continued functioning of the modified object
+code is in no case prevented or interfered with solely because
+modification has been made.
+
+  If you convey an object code work under this section in, or with, or
+specifically for use in, a User Product, and the conveying occurs as
+part of a transaction in which the right of possession and use of the
+User Product is transferred to the recipient in perpetuity or for a
+fixed term (regardless of how the transaction is characterized), the
+Corresponding Source conveyed under this section must be accompanied
+by the Installation Information.  But this requirement does not apply
+if neither you nor any third party retains the ability to install
+modified object code on the User Product (for example, the work has
+been installed in ROM).
+
+  The requirement to provide Installation Information does not include a
+requirement to continue to provide support service, warranty, or updates
+for a work that has been modified or installed by the recipient, or for
+the User Product in which it has been modified or installed.  Access to a
+network may be denied when the modification itself materially and
+adversely affects the operation of the network or violates the rules and
+protocols for communication across the network.
+
+  Corresponding Source conveyed, and Installation Information provided,
+in accord with this section must be in a format that is publicly
+documented (and with an implementation available to the public in
+source code form), and must require no special password or key for
+unpacking, reading or copying.
+
+  7. Additional Terms.
+
+  "Additional permissions" are terms that supplement the terms of this
+License by making exceptions from one or more of its conditions.
+Additional permissions that are applicable to the entire Program shall
+be treated as though they were included in this License, to the extent
+that they are valid under applicable law.  If additional permissions
+apply only to part of the Program, that part may be used separately
+under those permissions, but the entire Program remains governed by
+this License without regard to the additional permissions.
+
+  When you convey a copy of a covered work, you may at your option
+remove any additional permissions from that copy, or from any part of
+it.  (Additional permissions may be written to require their own
+removal in certain cases when you modify the work.)  You may place
+additional permissions on material, added by you to a covered work,
+for which you have or can give appropriate copyright permission.
+
+  Notwithstanding any other provision of this License, for material you
+add to a covered work, you may (if authorized by the copyright holders of
+that material) supplement the terms of this License with terms:
+
+    a) Disclaiming warranty or limiting liability differently from the
+    terms of sections 15 and 16 of this License; or
+
+    b) Requiring preservation of specified reasonable legal notices or
+    author attributions in that material or in the Appropriate Legal
+    Notices displayed by works containing it; or
+
+    c) Prohibiting misrepresentation of the origin of that material, or
+    requiring that modified versions of such material be marked in
+    reasonable ways as different from the original version; or
+
+    d) Limiting the use for publicity purposes of names of licensors or
+    authors of the material; or
+
+    e) Declining to grant rights under trademark law for use of some
+    trade names, trademarks, or service marks; or
+
+    f) Requiring indemnification of licensors and authors of that
+    material by anyone who conveys the material (or modified versions of
+    it) with contractual assumptions of liability to the recipient, for
+    any liability that these contractual assumptions directly impose on
+    those licensors and authors.
+
+  All other non-permissive additional terms are considered "further
+restrictions" within the meaning of section 10.  If the Program as you
+received it, or any part of it, contains a notice stating that it is
+governed by this License along with a term that is a further
+restriction, you may remove that term.  If a license document contains
+a further restriction but permits relicensing or conveying under this
+License, you may add to a covered work material governed by the terms
+of that license document, provided that the further restriction does
+not survive such relicensing or conveying.
+
+  If you add terms to a covered work in accord with this section, you
+must place, in the relevant source files, a statement of the
+additional terms that apply to those files, or a notice indicating
+where to find the applicable terms.
+
+  Additional terms, permissive or non-permissive, may be stated in the
+form of a separately written license, or stated as exceptions;
+the above requirements apply either way.
+
+  8. Termination.
+
+  You may not propagate or modify a covered work except as expressly
+provided under this License.  Any attempt otherwise to propagate or
+modify it is void, and will automatically terminate your rights under
+this License (including any patent licenses granted under the third
+paragraph of section 11).
+
+  However, if you cease all violation of this License, then your
+license from a particular copyright holder is reinstated (a)
+provisionally, unless and until the copyright holder explicitly and
+finally terminates your license, and (b) permanently, if the copyright
+holder fails to notify you of the violation by some reasonable means
+prior to 60 days after the cessation.
+
+  Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+
+  Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, you do not qualify to receive new licenses for the same
+material under section 10.
+
+  9. Acceptance Not Required for Having Copies.
+
+  You are not required to accept this License in order to receive or
+run a copy of the Program.  Ancillary propagation of a covered work
+occurring solely as a consequence of using peer-to-peer transmission
+to receive a copy likewise does not require acceptance.  However,
+nothing other than this License grants you permission to propagate or
+modify any covered work.  These actions infringe copyright if you do
+not accept this License.  Therefore, by modifying or propagating a
+covered work, you indicate your acceptance of this License to do so.
+
+  10. Automatic Licensing of Downstream Recipients.
+
+  Each time you convey a covered work, the recipient automatically
+receives a license from the original licensors, to run, modify and
+propagate that work, subject to this License.  You are not responsible
+for enforcing compliance by third parties with this License.
+
+  An "entity transaction" is a transaction transferring control of an
+organization, or substantially all assets of one, or subdividing an
+organization, or merging organizations.  If propagation of a covered
+work results from an entity transaction, each party to that
+transaction who receives a copy of the work also receives whatever
+licenses to the work the party's predecessor in interest had or could
+give under the previous paragraph, plus a right to possession of the
+Corresponding Source of the work from the predecessor in interest, if
+the predecessor has it or can get it with reasonable efforts.
+
+  You may not impose any further restrictions on the exercise of the
+rights granted or affirmed under this License.  For example, you may
+not impose a license fee, royalty, or other charge for exercise of
+rights granted under this License, and you may not initiate litigation
+(including a cross-claim or counterclaim in a lawsuit) alleging that
+any patent claim is infringed by making, using, selling, offering for
+sale, or importing the Program or any portion of it.
+
+  11. Patents.
+
+  A "contributor" is a copyright holder who authorizes use under this
+License of the Program or a work on which the Program is based.  The
+work thus licensed is called the contributor's "contributor version".
+
+  A contributor's "essential patent claims" are all patent claims
+owned or controlled by the contributor, whether already acquired or
+hereafter acquired, that would be infringed by some manner, permitted
+by this License, of making, using, or selling its contributor version,
+but do not include claims that would be infringed only as a
+consequence of further modification of the contributor version.  For
+purposes of this definition, "control" includes the right to grant
+patent sublicenses in a manner consistent with the requirements of
+this License.
+
+  Each contributor grants you a non-exclusive, worldwide, royalty-free
+patent license under the contributor's essential patent claims, to
+make, use, sell, offer for sale, import and otherwise run, modify and
+propagate the contents of its contributor version.
+
+  In the following three paragraphs, a "patent license" is any express
+agreement or commitment, however denominated, not to enforce a patent
+(such as an express permission to practice a patent or covenant not to
+sue for patent infringement).  To "grant" such a patent license to a
+party means to make such an agreement or commitment not to enforce a
+patent against the party.
+
+  If you convey a covered work, knowingly relying on a patent license,
+and the Corresponding Source of the work is not available for anyone
+to copy, free of charge and under the terms of this License, through a
+publicly available network server or other readily accessible means,
+then you must either (1) cause the Corresponding Source to be so
+available, or (2) arrange to deprive yourself of the benefit of the
+patent license for this particular work, or (3) arrange, in a manner
+consistent with the requirements of this License, to extend the patent
+license to downstream recipients.  "Knowingly relying" means you have
+actual knowledge that, but for the patent license, your conveying the
+covered work in a country, or your recipient's use of the covered work
+in a country, would infringe one or more identifiable patents in that
+country that you have reason to believe are valid.
+
+  If, pursuant to or in connection with a single transaction or
+arrangement, you convey, or propagate by procuring conveyance of, a
+covered work, and grant a patent license to some of the parties
+receiving the covered work authorizing them to use, propagate, modify
+or convey a specific copy of the covered work, then the patent license
+you grant is automatically extended to all recipients of the covered
+work and works based on it.
+
+  A patent license is "discriminatory" if it does not include within
+the scope of its coverage, prohibits the exercise of, or is
+conditioned on the non-exercise of one or more of the rights that are
+specifically granted under this License.  You may not convey a covered
+work if you are a party to an arrangement with a third party that is
+in the business of distributing software, under which you make payment
+to the third party based on the extent of your activity of conveying
+the work, and under which the third party grants, to any of the
+parties who would receive the covered work from you, a discriminatory
+patent license (a) in connection with copies of the covered work
+conveyed by you (or copies made from those copies), or (b) primarily
+for and in connection with specific products or compilations that
+contain the covered work, unless you entered into that arrangement,
+or that patent license was granted, prior to 28 March 2007.
+
+  Nothing in this License shall be construed as excluding or limiting
+any implied license or other defenses to infringement that may
+otherwise be available to you under applicable patent law.
+
+  12. No Surrender of Others' Freedom.
+
+  If conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot convey a
+covered work so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you may
+not convey it at all.  For example, if you agree to terms that obligate you
+to collect a royalty for further conveying from those to whom you convey
+the Program, the only way you could satisfy both those terms and this
+License would be to refrain entirely from conveying the Program.
+
+  13. Use with the GNU Affero General Public License.
+
+  Notwithstanding any other provision of this License, you have
+permission to link or combine any covered work with a work licensed
+under version 3 of the GNU Affero General Public License into a single
+combined work, and to convey the resulting work.  The terms of this
+License will continue to apply to the part which is the covered work,
+but the special requirements of the GNU Affero General Public License,
+section 13, concerning interaction through a network will apply to the
+combination as such.
+
+  14. Revised Versions of this License.
+
+  The Free Software Foundation may publish revised and/or new versions of
+the GNU General Public License from time to time.  Such new versions will
+be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.
+
+  Each version is given a distinguishing version number.  If the
+Program specifies that a certain numbered version of the GNU General
+Public License "or any later version" applies to it, you have the
+option of following the terms and conditions either of that numbered
+version or of any later version published by the Free Software
+Foundation.  If the Program does not specify a version number of the
+GNU General Public License, you may choose any version ever published
+by the Free Software Foundation.
+
+  If the Program specifies that a proxy can decide which future
+versions of the GNU General Public License can be used, that proxy's
+public statement of acceptance of a version permanently authorizes you
+to choose that version for the Program.
+
+  Later license versions may give you additional or different
+permissions.  However, no additional obligations are imposed on any
+author or copyright holder as a result of your choosing to follow a
+later version.
+
+  15. Disclaimer of Warranty.
+
+  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+  16. Limitation of Liability.
+
+  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
+
+  17. Interpretation of Sections 15 and 16.
+
+  If the disclaimer of warranty and limitation of liability provided
+above cannot be given local legal effect according to their terms,
+reviewing courts shall apply local law that most closely approximates
+an absolute waiver of all civil liability in connection with the
+Program, unless a warranty or assumption of liability accompanies a
+copy of the Program in return for a fee.
+
+                     END OF TERMS AND CONDITIONS
+
+            How to Apply These Terms to Your New Programs
+
+  If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these terms.
+
+  To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+state the exclusion of warranty; and each file should have at least
+the "copyright" line and a pointer to where the full notice is found.
+
+    {one line to give the program's name and a brief idea of what it does.}
+    Copyright (C) {year}  {name of author}
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Also add information on how to contact you by electronic and paper mail.
+
+  If the program does terminal interaction, make it output a short
+notice like this when it starts in an interactive mode:
+
+    {project}  Copyright (C) {year}  {fullname}
+    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; type `show c' for details.
+
+The hypothetical commands `show w' and `show c' should show the appropriate
+parts of the General Public License.  Of course, your program's commands
+might be different; for a GUI interface, you would use an "about box".
+
+  You should also get your employer (if you work as a programmer) or school,
+if any, to sign a "copyright disclaimer" for the program, if necessary.
+For more information on this, and how to apply and follow the GNU GPL, see
+<http://www.gnu.org/licenses/>.
+
+  The GNU General Public License does not permit incorporating your program
+into proprietary programs.  If your program is a subroutine library, you
+may consider it more useful to permit linking proprietary applications with
+the library.  If this is what you want to do, use the GNU Lesser General
+Public License instead of this License.  But first, please read
+<http://www.gnu.org/philosophy/why-not-lgpl.html>.
+‹      ­RAOÂ0¸ÅA4¢x6Ï›8o„@bL<ÈŒ^›­l£m¶äæ7Bmi‹ÜÌÒ½ö}_û}}} Nƒ0”ÿHNƒè-™ôäª'±]9Bùµe¼©BW	™ã>Gé'Êñà5SXÏ`ã/4ç¥™}¢|!ö¹ëÏÀ‰¸bWb
+èúJ*ß62*qéixgî±ÁAté÷Fö†ĞDØ
+ï$Ë±€«`ÚPÿvZ°%ˆƒÙxgçºl£
+K€ qÄ²7*Í]İ™–SÿB‡7Øß¤·]íø-]0cìxÉw;N–ŞÅ­'p?Âvxô}3ÁlASA­ÿbkjL¨ÀE¥gÈŠaËâGÍ±Ö‹U2œÓŒá2e“×ó(!Ââ1MYFh®;rXTËs<b4Å\˜õ3^-Y•Õ¾™´Dµù¬7ÌªÆ†KoWl9Ğş/š~ø–¿õzı#Ãï ¶Şo  ‹      ‹àb```f`a’¬@&khˆ›®“0ÃÄ`š…H«¥¥¤™%ZèšYš'êš$%šë&Y¤¦é&¤X¥™30°0!éaÍKÌM-F3ˆ;3¯$µ(/1§ØÓÈı HiÜ
+‡   ‹      µTÍOÂ0/ûÈÀÄ€ñjL½yáàÇÁx#ˆ	ÑfôZ·²5nm³• ÿ<ØvqQ8tï×÷^û>~}{? ˜À²ä×–Ø¯îc÷N‚S¹¤ÖèHy&QKÊV:wIŒÿ® ¿ÈÆ•×Ühp«ÀIqi—#ïúòNa|¡˜GEBª†”O…R´§ÜG»êËâü=ìÁLÂÜßˆ`',ãÌEùŸC6ƒ"Ä°8ñ*2Dœ+¯Ó~‚e0ˆ`–$•€ıÑ`İÍ¯ô"‚©8tÉŠğš`Jiú$–âX.cõ\€³áÒ”.Å8UO*³urßƒÕµ
+à(³3Z»Öy&#$Bµ5†
+Y/¨x£¶KDTn'.g@=æH¼PÓÑşé©Œ³rFjË>†¶¢Èém,+´Ûù/$×Ë
+ÍÅ„©Ù‹J·_TvTŸh*pBQ´YîÎ|5óqğ|Æ¿NF-=ÊåœO¦Ô„Ñô_¦}·İ³núŒz˜‹mø+PŞa(  ‹      ‹àb```f`a’¬@&khˆ›®“ ˆÃÀÂÀ	¤µõôô¨8#3¯2$37U?£$7ÁÕ-HLÎNLOÕ	“¯E¿×ŠÄÜ‚ÊXu” Yy¥%ÈJ5±*--HI,IAÕÀÀÂÔÀÕÈš—˜›Zd 'Ü¨€ †Ï èî‡™ w%T€Í-@¡ ş/Í\  ‹      RMKÄ0ı°Ôeuqı¼xQd·‚×h†6’L—İ?/mZjA¤¦¯óòŞd¦Ó·ÆXÌ’„)½²ôµ¸¿¼f,ZS² øÆ,`D±¢8b	Ë	ó
+µBk•ŸxiJhÍ\g†¼|’çúòù_L©¯¤9LÈ3.Ä¼mÜ¼p¬æx/”Ô#¸GS7øÀPàæ8w íşk?v¹©ëÀÆ]µÒBj¸Ûs]+è¿Õ^ÕŞÔ‚#İÕa¡…1®şÀ ‹BD£.c!5Á2LÕS|Nd©áúu.úß@êÚ:ô}
+ûqzÚ¥´6ÚéÙeç¹UÜ{˜Ï€•Ùù'Êü©\”“ë2q0J¾=rÛ 4CÑ|{¥CAšüqjQn  ‹      UmkãF–»çä(¤å>,¦,YvŞîœK¸ÄI¯7	²ÓB8y#mOÚ»«\¥?½í¬´ë5¡ídíÌìÌ>3óìè×5Ë²V¬Zşë°´êW“ì7 m€Ğ°¬ê:¼¿³jÖ*¼WEDèã„$X+^\úÁ'?4âëc¤ŒhHÓL¢_È4Äİ1ÆÊOoªw×ÙÖÂ)æ‚ÑVóæ‘Ï§Í6jd<ÄV8ñIŒQó6×8¡ÿ>T*'`	˜9‹1XƒVÓÏ¤r8nnµXLenºğÃSÂ…ŸÏ¶İu÷zöîîş^sk«@Qé\rvO¦X I• Éø\JÀA“ˆ£öã˜}°UfD’{¼èI(’^CğÛ¼¢›şu’ÀŸ7›¢Íu›¨ÕÛùqK‘øİ>¢LSŸû#š%˜“@GV`°DùiùnÊ($¬à) ó;?À€SFÈƒ€×"Ù9@vû¤pĞc¥œ)J¡yø„ñ"2¡,Â(òéá?Ic,İ¼o?\ìmô;º#Ğ‰Ñppv>>Ó¶õH&±d,m$º?Š¤LE¿Ó)zúN0³[‡°ÎŒ]öšÙ¦­äÌ£Sfaû?mî!2,÷Ó5BAz-`j_µĞ”XHAkZG‡<&RÇĞ¦6Š°J™^¡ÛëÙî»û–ıİ½şv]M(,H®÷4çQAxt4ör|ƒZïLJŒdê0v`ğ‘&°õ})Ô»'nÌ‘Ş[xÇçzıjj·¿íöİ‚ªÍ-í8;{€TR;¶»k»]äî÷w ©İ"©Œ’ˆZ…ıSBê'Pi`ÁÂğ(ÍŠÚä15ëú„Èx6S~†‘ ”33ç8“ãâ½§/O±8Iå|Ï‹	0³C¸\šÎ¬\y#½\;ÉB/_zìá1ÄôœIãŞ8£›B{<òi˜Í‘7ÆY-LˆõsŒ§b ×Äşª†NØôû«"å'®*<x¦QÈ‘Œ›Ë²~
+×¶s™İÆ$XŒ\?ÉH,añ'ğNêšØx¾Î'z®Ë«Üœ ö…iÎŠ9Éû(…ÄÉÇû¥ê“9”Õz(ÍÔ9”<¢9Æ*É¯!Pi[mN§Ê_ÚVÓ¶Š7«,ZÍ&ã¤êdª|1–ŠY"ól€òb­ÌßKG7Ì]/é«G‡O”·ªe]Şª[ı’Ê-¥kzRS·È``©!÷’cÕÀZJÄÌ§RàÊRàçıWÔTûW×'1ÏkX†²zvrõ«³¯Ç¦P/¾9ÿ/‰ê?O_¶H¥%ÏÆl6Şğr2¼0#VßU]oŠSL§&ğª‘{¦»§Köò¨)M¶Õ¡Ÿ ¸V"¡ÉtC“padöTXÆ¶÷	  # Generated by roxygen2: do not edit by hand
+
+export(shinyTimeExample)
+export(timeInput)
+export(updateTimeInput)
+importFrom(htmltools,singleton)
+importFrom(htmltools,tagList)
+importFrom(htmltools,tags)
+importFrom(shiny,addResourcePath)
+importFrom(shiny,registerInputHandler)
+importFrom(shiny,removeInputHandler)
+importFrom(shiny,runApp)
+# shinyTime 1.0.3
+
+## Minor changes
+
+- Add support for `hms::hms` and character input values (#18)
+
+# shinyTime 1.0.2
+
+## Minor changes
+
+- Add information on `timeInput` return type (#14)
+
+## Bug fixes
+
+- Replaced outdated shiny utils label functions (#16)
+
+- Added correct timezone handling to `roundTime` function (#11)
+
+# shinyTime 1.0.1
+
+## Bug fixes
+
+- Removed use of ES6 that caused `shinyTime` to fail on older browsers (#8)
+
+# shinyTime 1.0.0
+
+## Major changes 
+
+- Input time with minutes rounded to the nearest user-specified multiple
+
+# shinyTime 0.2.1
+
+## Minor changes
+
+- Updated style to match other shiny inputs
+
+- Added input validation so that the time returned is always a valid 
+time (invalid values are set to 0)
+
+# shinyTime 0.2.0
+
+## Minor changes
+
+- Added support for input in the %H:%M format (without seconds)
+
+## Bug fixes
+
+- Fixed padding problem on keyboard input
+
+- Keyboard input now properly causes change events
+
+# shinyTime 0.1.0
+
+- Initial release
+#  File share/R/nspackloader.R
+#  Part of the R package, https://www.R-project.org
+#
+#  Copyright (C) 1995-2012 The R Core Team
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.r-project.org/Licenses/
+
+local({
+    info <- loadingNamespaceInfo()
+    pkg <- info$pkgname
+    ns <- .getNamespace(as.name(pkg))
+    if (is.null(ns))
+        stop("cannot find namespace environment for ", pkg, domain = NA);
+    dbbase <- file.path(info$libname, pkg, "R", pkg)
+    lazyLoad(dbbase, ns, filter = function(n) n != ".__NAMESPACE__.")
+})
+   Æxœ‹àb```f`a’¬@&khˆ›®“0ˆ¥€…	H02°0p‚ÄósS‹ˆ$Ã? ş¥¹À
+! ‰2€ñ?T+Ô ¤Ì¼”Ì¼ôb(Ÿ-5/9'ÆãJ,))ÊL*-I…‰°d›ÀÔæä'g§¦€l ­=¨  xœ‹àb```f`a’¬@&khˆ›®“0ˆ¥€…	H02°0p‚ÄósS‹ˆ$Ã? şUÌ‡)ÊI¬ªLI,I´*ÎÈÌ«ÉÌM…ÇøM%ÈX¨i\P“PÙ(úX¡ú8’2óR2óÒ‹¡|¶Ô¼äœ|+±¤¤(3©´$&Â’YlS›“Ÿœš² Šë"  ÃxœSßoÓ06]²v•ø7˜SJÛ±7^&x@['í	äÖ—Æà©í¦-ÿ5O¼NfgKCP-Ïçûî»Óù|7D (r{ì(¾_½¾@¨÷²4¼î;ıU+ê¹í	ŠĞYH™pê©“ò~'¿½üòw~
+²¸¼|ãIN†•·’*A@&W¬’cIwèB—‰T}KVŸ˜±÷D'bÜ­ÈÈ¹LG˜÷µbJ¯Á¨^Âgb³ğ6¬ÅôJÃÊÕú£Ì7ö‘”ƒî ëÀ¶8_hª€#ÿ‰lñê|Ÿçµ·Œk ¡‹b <bf·JqsôEl2&÷Çÿ›ÉñAé_p®YA,à‚hœ*NA¼İáuñ5™MÄhºßMøz[|K·f›®EâÖJâ9¾¶"ÏØU* §ŒCš\Àh6}7IfS\Õ1g|{õüÖ_ñè<94- £ò„é-\],Ì}Şä7c6S4t­O÷’³EmÂ.WÚÖ&Í'?ö”X’çå´ú³ÉaéÛúÓëğ¡QóÜ¨,Ü&©û¹æá)–\kH¬Õl±±n"fnŞ,WËï@Ë¬ÁÑÌ6   1xœ‹àb```f`a’¬@&khˆ›®ñX84[j^™••! \È   Æxœ‹àb```f`a’¬@&khˆ›®“0ˆ¥€…	H02°0p‚ÄósS‹ˆ$Ã? ş¥¹À
+! ‰2€ñ?T+Ô ¤Ì¼”Ì¼ôb(Ÿ-5/9'ÆãJ,))ÊL*-I…‰°d›ÀÔæä'g§¦€l ­=¨   1xœ‹àb```f`a’¬@&khˆ›®ñX84[j^™••	 \Ë  áxœ}QMKÄ0¶éº°Šø76(^<xQğ RQğÛl74MK“RŠ¿\„jl£¦İ``òñæÍÌãåy	  ¤÷P_!|Œ®7 (Ğw–ú\ÈmÄrj€ğŸâsÍöõÃ3àg¯‚hÀÇ4Ufé_
+:3+í½õÃÆà!I’*‹ºŠé=Q;C9²(–®ıú•l¥¢9Ş2NµAÓ4{*Iœ‘”ş3eÄŸçµTOE•éû²Ç‡èLLT4eZSu+ÊZİ‘pZ9¤ç-îgb¥‡ödG·ù¶±b…r#e(!Š8ş!À[`Z¢OG{ÿrã@½—\¹Jf’”%o'Œ_w™Ä¢æ|bĞÚ˜ö³\Æ­¿}¸ÓÖEÅQÔ`wêìø;ı_~   Éxœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@Ï¨š	Èa„
+²çd&$–d ™¿ø³!I3VƒMD*JÍÍ/KõÌ+(-ñHÌKÉI-‚ª@V•[©v‚^	Ğ`ÅPş @	   0xœ‹àb```f`a’¬@&khˆ›®! ÄŒ,œ@š³8#3¯2$37 Q	°  îxœ}‘Mkƒ@†G]5¦ò'zŒ¤í¥‡œ=µĞ=1J6«ìGIè//íP×bÌat÷ywf^g7S €1|‡¸„ğ}½š?° 7ßĞ=>0Hğ›è=—§5?„÷é"}ÄÓ>n¼~fÂ¸øÁh0¢è}ıÕ;‡>/	sJ+D'ù­«6>©ÂX%Òâ¢ÍrîhOnëJó£0ÛŞò…+s‘iMHÓL§¯/oÏaFGıãvÔ518Á­àÚP¿#²º'Bñ>:8i)1wp6€l_YEğàÀ%…u‘_ß¤Äa^¹Ô³;÷ƒûv‰å3ÖµâÒ””Û»ÅÃH	ÂÆ0£fÜD®ÿÍÎ/ê%R™  2xœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@Ï¨š	Èa„
+2V ‰ß@üˆÙ%ªÁf¡	FC™şc“TÄ"ÈV–XPS‰¦&ËY¬—Wš“ƒæ(N·P?½0GŸPW4ÓØsòÓ3“s Æğ¤ì?0ÀÀ?t ßâÚ   ¢xœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@ÏÈøÄl@Ì•`¬kC(ê.)ÊÌKÉwI,I…ª@RÃa``FPCÿ _Zv  cxœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@Ï¨š	Èa„
+2V ‰ßh‚Ì%ù9@ŠY]Øh4A¨ L€CÏ71hm*š8WJ~iRNª^jA1÷*ËRaÿ€şA1Š6XìeNL*Ææ]ˆ Ó,’¬Eù¥y)H
+ş!a 3X z!˜  xœSÑJÃ0MÛt]‡Œ¡"şÀ^„UÅ|ğAAT°ÂŞ¤f-¬‰4):ırVÓ6[»ìnXHÛœsî½ÉÍÉ¸‡rÆêíª_ä¾„·£K„°£&?¨~l„‘¯¾¾˜R6ikÀ=Î‚¥¶ÕÄÒ –¥ ¡_÷RÊr‹šB5:-Úú®*­ƒ¾ü&ŒK€t"6`<¤là.™EBÔ„]è˜"‹hpĞ;OÏwc	0Î4:S{è¬nTèS|Lù,fyúgµÂ)6£W6MÔ+¶/CKº…±ÉVR-É¾µ"6\ç=2ä7‘Œ!ÅDá!µ¨4g¯ØQ³‰ j:²·d<g“WØİ$gDRÎjnÍšÖ'à×nDHEdpVÒ6VUö}¶NğœÖà¾&Œ]›ó]}m’¶¬1€ªzª1Û¯ÆÑ2¤_†\? åcÚ²®º¿YNdiÛu#+‹*¡¹Ù[;ù-7qaœˆ+¿8‹ò8’23l6€‚V{ø†”¬  ™xœmPÑjƒ0½jR§Pè'¬°×ÈÆ^ö°çÁŞ[èkjÓ-©4öaìËÇ@{Y5iš“sOnÎ=»  ÿ!Ğíæ½ ¿0®d¸gúSVßù%,AŸŠÇâÕ1"K¦²jÎíûáŸW¢Šï…BĞùwÊºjOõPÊ=.”Áb&‹~Œ—Œ_™e§nŠk-t@•¡ò`S©‹ê¬ÔXJzëg­f²•	…™É˜ÕwS»¬1éw—vl6Ëåúıûqì?x£’–è[‡vNõ	+>MMR®S÷ÁõDæVö—××­˜„Îswe­o´ğrˆî½Ù»¹HŞ  Cxœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@ÏÈøÄl@Ì•`¬kCd+*Ís,(À"Ã]\Y\’š«—–™“
+•@’fO­HÌ- I±0!$&g'¦§¢©Fr%ªzÜÒâ’ğü¢ld‡†@\¢'%³¸ '±R/7?İtâŒüòäÄâT¨¯ÿ Ÿg)ƒ  
+kxœÅVİ‹Ó@OÒ¤_–ÓQP°Šç)šxçœ¢orpĞÇ
+¾•m²möØ&!»¹³ø—‹pq³›4›ÍÚkE°°Ívfvf~¿™ôÛĞ0ŒaÛìÛa[Ãù:=sOÃî°?ñ±Û°ç€„(ZOÑ
+–çÄ;öŞ2k‹ı0KaEIFÏ¶ı¥¨æë— gm®Ugúq¶r1_“Ñ
+E…¡0!Â_]ÉÆüÁa4…Zh¤=D¼(ÃX¨ì¼ôÖ:üÉ•,TíÁÒ/p2L9]uV’¯¾îäˆ…÷CŸÂTŸÃ0ß¹OhšP³´i°Õ]Äé
+P¶»#£9œî‘£ù¸JƒnŞ>ÜÓ'hÅTÇCÆFÙj^á×¹®sù,„Nk£8ÛƒµAgQ0mĞÖ
+}­w¸q2äM<Ãˆh¡€Âi\Ä˜l,l´–_‡Ğ5.kTmx…~Ÿúá.nñ;éù¢q4*šÂe¦1şÑ=
+–=´AÑCG’²Q¤§J>6sFTYA gëA‰å¡Š©Kü%ÔhI}á£ÍèzÍ©˜ÍQ°¬gÅUñ.ä¹±küN€.5Á-Ä@Xêµs*êå¤Ş­Ö.ÏË-²pybc^Š%ëÇdÌuc.æÅ(ªîDƒŞÛÜğ¼°›”Ö9ÏšK¯.´4SoÂ=Îk°Or‰è/‘öô9üˆ†@›®¨øïVó Yg6ùCó¸e¾+6Öõ•eïÕÓ‰0âWTrWb‡q–Ö8îåbmx’+å$€…Ò”Ğô…ğ~å]NEÔ—÷H‹hHëû1Æ !*qæx·®>”ªûL­nƒı#U[Qş\UXï?Í‹\LÒmtI	è(|)íWù²j²X{H\¹­Ä5ÜTï;G
+÷_øú»^ì°¿KÿGæt/Õ&_¿¬UU  ‰xœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@Ï¨š	Èa„	–%æ”¦¿ø³!I2VƒÍC(\R”™—’ï’X’ŠEkAb1V	Ædl‚*A¦ÿPI˜KF~iÔ]PMìÿq¨eÎÍÌ#Viqj2Té?´ààHÎÏÉI,(¹] Ù‰Vÿ )„*2   Èxœ‹àb```f`a’¬@&khˆ›®3ó“˜X84gqFf^eHfn*T€ÕPÏ@Ï¨š	Èa„
+²—eæ¥Y¿øHI–±l ª PKA	È\°Ót#Óò‹rK€,$Q&Õ¨ÿ O¾®  ëxœmPMÂ0Í¶ÖQâğ:Q¼xğ,ÔÓ¯“-tØM¹ÎlíÆ6VH›ä%y/½LÀBğ¦è={o@> ¾LİEò
+DÌM‚®—«å«m,“tWJ¤	ºß!$’¬Èıh¢2¼r‰Îo<CYpÔ6é€Ö»–×OÚ;Ogi9‚Î¢0çAZmq*ïT6¦Ãmº[õ1.ŞøÈP=ÒìTH©F@"kj+R3œ=ŞwÉ…ì¡ ¹âIäW_zl•™!©e-Á*
+?ƒ‹      ]’1O1Ç_Èš´Hea+C'Ô“h@Bl¨	)D•r¨İ"'÷HNÜÙ'ŸÚ¥RÇJÙXPÕ©êŞoĞnĞ©K?@?BÛç‹ï8ïïßßïÙ>?¿n@<¾êBã88x¶°ğ¸˜k‡Ú2µzÿv×?İã€Ú†ãbÒ%Öıí£ø5Ç‹?I//IÒ´Ä¿I¿8~ğ‘ò/·7?|Jz]â[’W>“~uÜ~Eú®Äô?ğÀ£>ÔÀƒ¦>$ÎÌÌÁtŒÙöG£ÁŞQoørïEo4ò½Jö°{„j&Â,`ãİØ’/x_°Ğ`“ğ˜ÇÎxä§lrÊ¦8 õŒ·2…¢ûQ¦lj(E:Èã8³aSTûxÂòXéPëF™>1ò<£´ÉRä<,…µ³YÄßò4W}6ÆØØÂÖq½7,IcŞTdÑvevˆ}Ú­M×îPÉˆO+~;O‹º›à¯¹x+DmÚwÇÅó¾ÄºUºˆësO®öÏÔÊ3K."?Ûİİ¬Ğó
+u+´5ß´ŠKP´Ê¼u{gLFºÆ¶-‰'(‘Oœ3I*1Ë0Ô“şqoƒß  CHANGELOG
+hh
+ss
+ko
+fi
+ORCID
+CMD
+DisplayMode: Showcase
+#
+# This is a Shiny web application.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
+library(shiny)
+library(shinyTime)
+
+ui <- fluidPage(
+
+   titlePanel("shinyTime Example App"),
+
+   sidebarLayout(
+      sidebarPanel(
+        timeInput("time_input1", "Enter time", value = strptime("12:34:56", "%T")),
+        timeInput("time_input2", "Enter time (5 minute steps)", value = strptime("12:34:56", "%T"), minute.steps = 5),
+        actionButton("to_current_time", "Current time")
+      ),
+
+      mainPanel(
+        textOutput("time_output1"),
+        textOutput("time_output2")
+      )
+   )
+)
+
+server <- function(input, output, session) {
+  output$time_output1 <- renderText(strftime(input$time_input1, "%T"))
+  output$time_output2 <- renderText(strftime(input$time_input2, "%R"))
+
+  observeEvent(input$to_current_time, {
+    updateTimeInput(session, "time_input1", value = Sys.time())
+    updateTimeInput(session, "time_input2", value = Sys.time())
+  })
+
+}
+
+shinyApp(ui, server)
+
+name: shinyTimeExample
+title: shinyTimeExample
+username:
+account: burgerga
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 115377
+bundleId: 2114189
+url: https://burgerga.shinyapps.io/shinyTimeExample/
+when: 1559069168.37849
+asMultiple: FALSE
+asStatic: FALSE
+shinyTime-package	shinyTime-package
+shinyTime	shinyTime-package
+shinyTimeExample	shinyTimeExample
+timeInput	timeInput
+updateTimeInput	updateTimeInput
+‹      ‹àb```f`a’¬@&khˆ›®“ ˆÃÀÂÀ	¤‹32ó*C2sSu“³ÓS	IÀ%\+sr`âœ%@!Ï¼‚Ò¨ iAJbIj\˜…	(Ì•fÍKÌM-HŒs8á”;ƒá 7Ç  ‰PNG
+
+   IHDR  \   ¤   Û –ì   sRGB ®Îé   gAMA  ±üa   	pHYs  t  tŞfx  €IDATx^í]kSÙ€Ïò·ô& ! „2pÊ0E(ƒÓË€°ˆÄÎxàˆ”Ş(HÁé	•*Å¹ğ(†Ö¡©5~Õê{Ö»³Wº“¬|ì¸&Yyx˜&M³Ó·{=ÙÙi  xà x‚à x‚à x‚à x‚à x‚à x‚à x‚à x‚à x"spß¾}+»»»R.—e{{18µoÚ9íİ0ÈÜıı}©T*ÑAD]ívoPRWK¯õê•ìííEâõë×ˆˆÁ©}ÓÎiï´{ƒé¦®Ö^7®äÍ›7R«ÕƒU;§½Óîiÿ!upõœFµZ„Ö1tµwÚ=íß ¤®HÖCm×ƒBDUíöo2—£[Dœ4µ{ÑƒÑ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“Ñ“w[®NÈ‰=\¸ïøÚ>üã¼ùúórßõ¹¡{_Î›ÇzşÄuÑöõ{(Èõg‰ëqd%¸‚»ı[!şzÁ}v]
+ñc%¸ˆã-Á×à"âØ9Áí'ª-a»¿m¤=ŠìñÂuÙvÜOİ–(7m§~ªÀy;ãqØ“Æ¥í÷ø¾
+¿m·|­½ïäöŒ¹4ßõûj¾Mâ>²AœP	®µ-”­jØz·ÁV/û;mÇñ³×i¡àÜîqP»¼"hzl1«“Üv
+áñÑf2z6NîS
+®9¢ßa;m:"N\ß5¸ÇßWÓkãH¼ı±O‰™8Ï\Ä¬\Gp›_F¦kpqJ^ß¶ãv:˜%¸É6n×üõGv<1D_ß×cEÄ®\Gp›ßœê/¸É#a·ñ¶:n§ƒ‚ÛÇOÍÁMÄº“Í"ìd·ŸXÜøv$¸ˆKp­·SØÚÉà¦œ"fr2‚ÛÕös«™‚›<JLD«9læº‘nò{JÜÎ¹m÷÷‰ˆ½%¸‚{±Ø¶hµÛ¸Ï´ÁM.2âƒÛ¾„Û´Üà"¦’àf	nÛ}'t÷S·9téƒÛòèë†Ü–ë­mQ%¸ˆY8¸ˆˆ£%ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDô$ÁEDôdğÁ­T*²µµ%òàÁì¢ÎÉu=v—¹õV×ŸÎI×£kNŠAWÀ=’gÏIµZÅ.îíí5‡~ìº6ËÌÒ©ëP×£®K×zƒ®>“êW‚^~ÿş½|øğA>~üˆ-ê\Ş½{×ˆ‡~Ì¬ºËÌúWç¢ëO×¡®G]—“z¤lpõYôùóçÑúèèH¾|ù‚]üôéS#ú±ë6Ø,3K§®C]º.'õ(7Øàê9#ıïçÏŸã­B7t1ØxèÇĞf–]újÀ®ÏI3Øàê"Ğ—3úÌ
+½!éaféÑõ¨ëRgæZ·¡tpõeôñH3Ë†=ãZ·¡tpYıC<ÒÃÌ²açæZ·¡Kp!‚x¤‡™eÃÎÍµnC—àBñH3Ë†›kİ†.Á…â‘f–;7×º]‚Ä#=Ì,vn®uº"ˆGz˜Y6ìÜ\ë6t	.Dô0³lØ¹¹ÖmèÜ¾©Éæ¥¼L]ÚŒ/7³ó (ç¾™–ÜÔ”LMå$ÿCQJ»ñ'Ç€aÇ£Zº&ó3933“y9w¥$;]ï¶*kóæöß¯ÊN|Í¨3ì™‰lÊrN÷ŸvçVš§Í÷ÛxËMËÌ…UyzrÄ±ss­ÛĞ%¸ıpdb{u¶¾s;‚»³2g>—“Âü5¹ı $¥;×äÜi]s²Z‰o4â3µ‡Ë’7³ÊÿPŸÇíÍKÁ„$wÖÄ´Ã]×ghf6ÉÁİ]•93ƒ™Ÿ–eùr³7Õâµïok+K2«¡>]”'CÚå¿&vn®uº·‡•’¿‹Ô\Á}¿.‹fgŸ¾X2ÇÀ	jõës¿¬Ëa|Õ(3¼x<‘â©öpÖî-F‘X~_‘¤rÓ„&/y}’šäà––Ì>6+7»=IÇû[Şì‡MûÛVQ¦Íş¹øßÑßÛìÜ\ë6t	nWÌK<l® wKró{Gpÿ¼!…“S²TŠ/7¨ÉÚÏã¡Åã¯Û²ğÍ´™WSÌœêAX~_¶ÔÌŒMhçníHéÒdwçÖ¬	î²Ùë:S»;on³(ëïã+Æ;7×º]‚Û•M)µçbwdÕÜNÅGzókÍG"#Ê°ã‘ä°\’åšW	§MLšBQ?/nO5lNxpKÍ÷ö†¬¯,ÊŒyw½Ğ˜Ñ_%¹öÓLı4L_çÈG;7×º]‚Û7é‚kÏ³ÃK<eØñˆˆÏIF§b¦d­åMÄª9ZËåæe­Z¿<ÙÁ-Ë3:«–s³ŞÆ{UY=k.Ÿ*˜WU9™½¸*kzüJıı…è‰+º¯ÑÆÎÍµnC—àöMÿÁ­Ş[¬¿iÔzm„n<bÊ›QÖVŠío"VLŒsyY~x<¡‰îaIŠysDÛºÏ¬Eçl§~¼mrïƒfßÒS0IªwÌ“×˜<ÁÛ¹¹ÖmèÜ¾é/¸å•sÑÑFş—u©só_™¡ÆÃEü&b#s4÷mûÒ¤ŸRèÄæ%}ÓVÏÛÚàšW­¿vT’%=Ê½Üç)¯¿;7×º]‚Û7=‚{T“ÒåBt”1{õÉØÙZ|Ä#:G©o
+=\ÒºÚã‰múÌô.wS3Í¼:Ø=”õ:×kñ¼c47×º]‚Û7]‚{´#k?çÍBÈËÂİq9>kfhñØº&ù“ÓRÜŠ/7ˆc‘3±¨>•ÒƒR›7~4Ÿ?³Tÿ]æÿÅ'vG˜¡ÍL‰Ÿ„ïµHÌÍ\*ÿ^ˆã[ÿlıu1óõ…ßËñ£‹›kİ†.Áí›NÁÿÍÄ6y>rÜZ<ÖdŞ,üÜ…õæ£üèœm÷ßKèS
+ñï×¶ıqHô;ÊS2}åIırù¦Ì˜Ë­§cvnÍ™}ĞõD7zØ¹¹ÖmèÜ¾éÜ?‹ÑdSgæÛş:(ò?ãñÆÙ0ãáüK(}·]-¬Ë0&ı®ık»ÜwÅ–¿ KÎÍ>ÁÏ×ş–Â¸¼IkçæZ·¡KpûÆÜ'W§£—‚“€=úoKäÿ–Â¯·{ş­?ošu˜[[EkòôÎRãv¹S32ÿoÛaîî_;7×º]‚_#¡ÃÌ²açæZ·¡Kp!‚x¤‡™eÃÎÍµnC—àBñH3Ë†›kİ†.Á…â‘f–;7×º]‚Ä#=Ì,vn®uº"ˆGz˜Y6ìÜ\ë6t	.Dô0³lØ¹¹Ömè\ˆ éafÙ°ss­ÛĞ%¸A<ÒÃÌ²açæZ·¡Kp!‚x¤‡™eÃÎÍµnC—àBñH3Ë†›kİ†n°ÁİØØ`¤€x¤‡™eCg¥ëÓµnC7ØànmmÉ‹/â-B/ˆGz˜Y6t]êút­ÛĞ6¸•JE?~,‡‡ãñ?qü»!éaféÑõ¨ëR×§kİ†n°ÁUõYT¸/_¾Œ· éaféĞu¨ëqRnÕ ƒ«ê3©ş€õœ‘]èVçäº»ËÜz«ëOç4©G¶Öàƒ‹ˆ8*\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDO\DDOş-Á-—Ërppà|@ˆˆ¡ªİÓşBêàîîîÊŞŞó!"†ªvOû7©ƒ«®T*œV@Ä‰Q{§İÓ!up•ıııhãÕjUjµZÛƒCDAí›vN{§İ”LÁUôÁèáµÓĞÉˆˆ¡©}ÓÎiï†Aæà @:. €'. €'. €'. €'. €'. €'. €'. €'. €'. €Dş—òwn;U±    IEND®B`‚‹      ½Îá
+‚0ğ«ôCAĞ‹ÔYdõ}ƒ¾ÅĞMWÎ¦ÎÍ^>:B°'pƒİÿ¶Áïn3 ˜€çÑéSÿ–€ñ‚ö”ªC]IËGË*¯<áU®ÅÒŞƒ}¨Ö»wæ¥³áj'JĞJŒğb”ÎäI(Bæ\¾ÛoÃ87Xg²xG’+ún©Yüd)_]’·CòÇ–)ÿé¯tCá\èÆôl3 Ûè„€èoLø¨Â²ª…ùï€>Àç İÙ®5    ÙxœµRARÂ0¥èÂqÆs`ªC­]é Î°Ò	iZ"MZšØÂİ8ˆ+áÔ“+[;Óö¿—äÿ÷^;ó Màºêé©xÓQw€s®ÁşÎÔİ .èn:FºÎ!É#¢v¼}ÃqQ¨ú³¶VÁ¼ %’–¨€q–F¤°ZÃUùBvÙß¬ÃtU•/q%ªxÅu%NáX²|AG1#0¦)‰ƒ!éz!ÆáÊ7Sª–â{ÔÍ^¢„\Œ#åÿTË¸~Û¾ßê j>pŠ„õá²õp?¹›aiàÉÊ#¦ş×ÔÖÆ—™ê™©M³MœØÄÖÍô§1¸#U!ËáT‘ññaşFÍSKXw©ÿ˜îá›óàw}Tu{N¹V*lªJzšYä#):•Ä2.“İ›fxIvÊ¿+AŠÆ  #xœÍZ[oÛ6–;±³¦mšvIğ¡AR ¶rOá‡¶ÉÖ60lpİ­@]ŒDKltIÛÉşøŞš‘Ò±£¸6;Rkôw$Qä§çğ"êı¼¦i3Z©$ÿËÒÔÊïZ¯kÏäÑ’<¨hZQaAâıKZUâ:·©wÙ¢.i C¤xAW ¿¨i:>CoUM+c÷Í6ÍO[ÒŠ—Vj½zßÍÉ™ÁHGòXPG2ÍE|BÔÁÖGîš“wu¨C¤ùı†¯×hlÜP6ÌùŸaİÚ—(©[
+W£¹Ú‚
+U•ºZ¼aZ Ü{3Ê7sõ_ÔÊ_Õ3Ê&±E‡-R°q†-’B»ôç«æQéV¸örv¤¹”Ûv“,j
+WÀ^ÉYÁêPÁ1•+ƒ3–!%Â\•›mc‡bÂ¦ ¸öâ´;ß,È6í]É¶½Ç”pdSøìÇ9KX¡ ÌÃNšr×}ä®J­yÀE°3lîD.•ö¹ìûÌLáÑª= ûAÆÚG´+Ì)šr¯»1„”ÉØÕÂ“?˜ß£&á#¡J”ı‘²Z6åƒÓØqü>—YE—
+Ú#ñ;©‡„MĞÚÛşØøàºòókH–t}n­oï?Uå»X ÓKÔåÔ³$NÌ° Èëº„QJUD6ì¨&Ãwß#P´TÅÒ7;Ø ’Ÿ°QS&ŸÇ”¥ÔÂìşégb^Go		ÉÌWgP »‚°h×gª˜ˆõ=„=‘ìáõqÛ¯
+êÙ
+suú;mÙ†£¢ŸâSÀÂuÊÔñ+·uü‡ Ş !åÚ³Íÿ†¥ÿÈDØ˜lÃGĞ—T³íK¹Ìµ¹`¾g¥Ğ) Âƒ*Ì£×Ğèa6f&:ê2‹04vŸ€aˆ$¶ôÒiHµná—–‹©S—İÈ´7 Ÿƒı<÷‰ QlSØ¬¾ ûEN-^DëhõğìÃì‡Z-©©Wm!ŞĞuŸÔ¬ûÌÒ7å¯&ÓNmks»¶·w°?æ,P=È1 ¶“İ%>Hù÷æÏ'¿L ¼ÈÁæ¹¯•ì0S"™#@¶ÈËIŸ;â(V]ÀØ½œØ=ş9Ä3³SÜ¶ÏRFgEa9:a@—o«ÙZ4Ç ¤\ôî;N:]9Ô;ãq™Ş	Ş;ËYşR”ãvr.€„ÌSÎ"Bc²‹É¦Á.f,¡–ÚáQAÜR3€s`ÏåÕ¥L¢X|y	)×y×p0æ_®[r™Ö=­S_¾™ÑÇŒcëbmûsíKí.Kš‡©º«€;`ïLË ¢HíÆÒ”Dğ½È_BœšVdf §.‚©J¿iCàÊ…Ó0˜õIßKß§Tø½#Xq¨N]+R»1œ®òD85¬2Í æÁ÷Q“>è´kq„Å$ÂL8µ®h™îl%ôÆÿ
+hrŞ%|Ì¸Vy~<ûø;ÅµÊ³xöÉ´ÄµÊók!å*T%ŒúwÒ®æBä(Ãm¹¬×w·K‘*ÆÒt‹í$}³…z¥Í	Á÷SÁğú7/>×W›&|Ò¿§¯Œö° z3½ã;&a\ï_èç½O›{îÖşåÅsŞï}îôy¿sîª×s–§·ô¦p›¾îÈîG•ÛÙ|Föv÷co;Ö3¹ØÓ¿ÚÕ­7Í”G(®\7¥K½E¼ñd¸K|ãôÆ*zC<¢v§LµeÅü‹K‹xÛdúÈó"&÷²lìVWV_>ä(ê1}£u8¬ZQéêåË@æÍ:ø6}µìšõÙJÀÔ.‘1ìÔúå_0å 0  ØxœµRİNÂ0-cØ…1ñ9´hpë$Æ`Â•¦tTÛî§uƒóYx@m±8¹uÉ¶ïœ¶ßwÎÙæ!  	|_?]‚àq6¾à°ƒ3}7€:‡›‘¾wH
+Ä‰¬oNc*–ºş¬­•0+h‰%*`’²˜Vk˜—ÏİAÄ¯ú›uÄòª|I*Y%9ïêk)àNÏVtœpÊHÒ’ş a]C¹¢b3£z‰#±G£5â#—“XÛ?5*n¶ïw[“CÍfH:%[÷ÓÛ9Vì :âéé=ıhm|Ù©ÚÔ)»À‰ÜbÓÌ|‹;J·‘J‡a	¯Š­û4jZ²À¦KmøŸÀLĞ¿ë£ªÛ*ŒRéRÕÒYêPˆ”*èâMÇøTN{n/Kñ+Ù)ÿ‘ØŠ  axœÍX[OÛ0MÛ”–(â6
+ø#­€úØ­L{Bêº‰‡JÈKœ6[â„Ä½ıò½Áìöë-K4e$c‘Üs¢ØÎÉùüÙ®o’$e$Yæ¿YN¥ì—Æõ›+~·Æor’”˜â¸:DYZä¸÷¹m÷käµ:hA¤-Ç$;$Éé™Úuíág³}ÈÚmÃ_ÓsU—èüíËâNÈá%x üÀ×*Ç[é†I8ı)®I‡„v+•s_ƒ¬jbÏóé™¼[zÑ$õè¯Õd¯OÓ>¥)ÀCà‡£z™Ç?IËşö¿šÀ8¬Nì¯ÜQ-­Õ«š3£qøF|šµd›[AfÀ4›À7ÿse’2hÎÇ«9dbÓÀ^ˆšàğ­„\›Î z‡ªÌ°©fâ4ãçd¿ä¥ X^JØÄ|Sµ©J¢'¸|7fÓ>S…ˆ¦‰g+3%6‘³O«õEyÆp‚\LóH#6s13hË·Œ«lpõë
+`»À*ğjÂCb©©OuGÈq\èxåy†E¶şşæC-@¥(ù„’È¸XóÏGÇ‘õæÀI0¿Lxíx¸´-€‚|‚1^xjê/AbŒJ"!.İğ´vòÚ« ¨º—ÁP%à1Îó“
+Z¦ÿ‰:Qô
+¸|=ñ-’iĞ!br€	ì×æKGÍe!kpxŒû¯T[Jåa·o'åÕIÔ\ª^î ßùG¹Pì8f¤ñ—Q„,(‚ôåx¥GËˆ"dÀğ8ç”'f„µ¸|ï¹2¢Y pø~B^E^Ô„(4ƒPşà‚MÏYdS“ú±ïü$p~1Û¦«8®Ñå‰ªt±«è¶©×Sz}å¾{wvY¶Ş^úeó¾×ı®÷¼~oñ«E•†Rg–Ó6®u‹(¢_ıìŠ\\¾+«jù\™¬äŠ…©âßÀÖµ/HŸL#i†§SÍ°¶äkur€>Jø?¢¡oäÚıA‹Ğó
+ÒlDm†ˆf0ñ ©¿ÿ¬8'ŸÒ¤Çg=š­6/ë­Qï¶;µu.Œãë„PŠ/ŒsbóKìş“}8ÈxøUx7©  ÑxœµQİNÂ0íÆØ…1ñ9´Ó0àÖI¸Ò &\iJ×Auí~Z6x:} ÀçğÚ¨-¶&·.ÙöÓöûÎ9ù €ğ<õmª4ï¦Ã³ î©¿p¢^x ³»éé¹»$GŒˆÚñö5ÇiDùBÕŸµµf-‘$°DŒÓ$"…€ÕæåCĞÙEo³“¼*ãJTqÎõ,8œÂ±dÙ’cF`LÒëwCŒÃK(–”o¦T-1Ä¡TÅˆg+y>”ïc=şêíùãõE'°¯'HXı®![·7“ÑK¶P0sÿ¿f~´:_fjÓLm¨xmÒÄ&m°n¦¯ÄàBHÄ2C¸Ud|¼›»wjZ¢ÀºKmøŸÀtßœûõAÕí9åZ©°©*éIj‘¤,è|%‰e<*&]»7IñÙ*ÿ‰n‰/  fxœÍ]ÿWÓÈä‹" ºà`¶è{°¯´µè[ùæÊÖ=ˆŠÊ‘í”f_›ÔL
+röìßı~Û}ù¤7m(­nÚLSÏÎŞ‹IË™;Ÿùšx0¨(J·ÒÓcÿ¿×¦JïëıgóíŸÆìì‹Â.GìQlÛ0¹jq¦2K+p¦éÅ’¥(=Ï-—ö2G–zl3ï{ö·ökïfÚäYûWÑO¤ÁNıÀ[à·j>Õg*«å¹Mÿ§”ÿT¾ë'©ÔRÍzÓyUˆ=•ß­üYNô‘®¿jï:´4‹~]üU£´xüvù¾î¿¾%­÷Âï©US·ğ¨Ì·«E~AnÏ›­½õ:b»©Ø€ÃàÃÁ‰­«¥÷PWõJ®¥Õ]ù€ƒYr=0aîïVlÓ©yMÔtGÁG%İ˜ÈiúÙ>µölIO[š¡‹F…Xmãçdÿ¤8ÅÁ;àw$bÿaÚĞÓ¼h5ĞÓœŸ¸¯Öc× ÏB»Yş’
+"&Ò{õC9ª7¬Ÿj™cn1+§ZÌ.F¡	K0#Ë/ª&…½Tà¦–.ÇÁ²†ißÌYÎ(™"Æ
+š^²¿-ÆT=ã7Û·P„À?HÊö¶àvî2"ÎösèËH23JÑ5_âN¾)oŞ‚QMº]Xªí0ºÁo&=†²¾-¡×kÏÃ›vRsŞ ^‘ûmËÔ~‡€·Áì÷t%yMÿo1}@—,&mdêõkwP‘„2¢Š÷êãyRp–Vuö‰S#=á¦Å3Ì2gM£ÀÒ9»µ¦-n2a™š~,lÿZ9¿f¥üLß¿k“YûmáEjy>5OÂ™„×Á¯‡åÒI8“ğø°\êq¦òøw’\ÚëX±‰ªŞ—1°nd·l“v›&ÀaÚ-
+L‚'Ã´›À$Ù-÷ÚHÕ"p	|I’ºk™ŒF£g5Ÿ?sÂ7Fá¢ÈÓZV³C¸Jã°ÚØmßì|æ×\.U(¤„ø•F]{€f½TİoÎ§Êîwğ#øÇ6µ²î\Áï¨cÚN×€×ÁÛÏ«É½Ì‘Q¤j&SCÀağ€gå~_0ô~h¦#”İİcÎ
+Pœ=£¶Â„V(æ9ã_TÕbÑØpÖDíWÁWÛÔ‚F*sò­r&šĞşøümXı‰X€„iËÇÀwàAv[ë¯HÕ{àğ 'Çuµ\9Ìp‘65½ºëÔx)Ğvù»‹)½{/7·ê¨¤ÔïA$)õº[YlœuzøíLŒåÕO<+/)°'ìç×;;1†åûçı½×[îºI\X¼(pÓœïœö¡wÁw%{äÒaI¨ÇõÚÓ%(è—èáV—Ú›{)h+õBy,âSò j˜p|(8ÉÔî©=´JÖ„Îàø˜„^ò\ÓĞ¾²Ğß°İÂ[À)ğ©°º!qèy§%…+;å,öjù<MFJKIé4Â™x8¡+ŞDõ3àğÒU³x¡˜.àø¤BõƒHÔ®‘:CÜe”–‹’úøº²×é:}
+¦Ş¼~YrxŒnj¢˜WÏÊ}}eOÄîâ-Ó°û~ûç&rq˜ pY©nğì¡Q‡ßØIW€À…;ID˜OIjIWjÖrû¤pøüyXÑñJÙnƒowJ "Qÿñ RgˆBi¹ØÖèètË>Sé¶+:ÆiğhÏ$5“F´—ZP°İ’°hÈ¡VvTiÇµ‰¹iµŠmYŒiqC•¤>¾ÖZ‰X¾—¿0Ô “ˆÇÀğ †Î7z¿±›D½ó R8±ûjÙ–¾ß)á‘D}ğ RgˆFi¹ØÎØİ‡õŸ’é> ¬©­Ô¹W9ãûU4â©œÙäYµ”·MiËo3ñ¤‡U§À „ÀÆ¶æTº'åA¤Îç9ŒØöftÅ»lêS÷5´Ÿkçy m©¿Fïí=£¤cd·š‚İ|´b¾|Ğ¬	ù7€	pÙÄ¿SÜ'Š$t¸¾Öø‚D$ëàë’ZÔ$›9£”Ï”‡º§9#ïœ¢üÄÍ9ßÛ@$xx~$IøèvÖßZÎf„öíHïS,<ä`»Î,£gmhOú®	àxhkÀc¨aÂi¥rşAJ-÷P$j¢bp|FrÅö>[ÛyµÕLµş ŒƒÇÃ¬Ö»Àx1»¥Y‰Jz)œáØ5¥9Àeó=â!Q‹D’ZRƒ‡ªy\*pİu ˆ®+òÆ`­Pú=(s~p[%S§Ót>Uz$ywäöY¿¼|µ}÷½oIGãàãa7q8>!©zg˜ñé7¶böhJKçê…÷ëN’}¸
+ä2¢÷jÄ·+ÇáDÂx¤-®Lûv%i ƒËâ°+ID7p|DRµÁ•Î£ÍÔ0Ú¯s&yT	şÁ´ÚTE¼…J¾œŸ³’§€qğ y5³9Z+&g<›ÕÒšİ%3a¦zÌ}ÏæHpø\ö‰K‡}£4–	EŞ(b¨ÕQÄS¥Ü/»ˆx;©×^š}$i­œqC$‰DôC?
+¾›Ê>
+‰±&êm8äæ[^kæy$Òz…éµià<xh½‰¸	ŒƒËê%šóZ˜pú-s›$?¾ —Òï+–{ Üğ¤ŸË- wÁ;æd‰úÙƒH!n½lÓ
+=ñ^½óÒÊÑÃv_v‘b~uo@+¡ç©ğ@›q¤A3nõÑ M¥<4ÙTÎ=ëN;&}@ÏSÔr¢õìœßùÉšNƒO‡f6a4BÎ¤õl~›©ú¶©I—Šôm_}Pé[h„¡¿ñb­€PÂ/Zm$k8ÚÚZá4x€Í³µ¾D1"I-©şCÁ¹šFƒ)5Ğ3EN_‹-Õã£°qÙƒHRª413Ã^êù3f–t÷aaAákºÅéÙ|í„³=f•|ç%ŠR&L€ËÚ¼¡eÙ¬G÷ìÜûİ·â¨$t×‰\5hÑw¡ÈE™£ÅÑ’ÆÏ³l¾¤e~Qù¬oµ÷ PÆ±ïÕ)ÆfÜ“zxU,™L9ÿù–şÈ%œ0ÈŸ“>ÍXõiÚ(Ñ…hŒE©/OEçCjÿ'ô†Ö'4T7E.Ê´ğ™â½åÍ`é’iÒ6•¯oÑsJè®ËÚó[º`‡ÅªªW¿:qºh‡9ÿùy \_ê‹üŠ\”i‘ñs–QhÎ!1è$ôlbJÑ¼qÁ!Kõâ.âÏFSK÷SË+t×½ıh3™G=Ó°qLŠ\”é˜ïë;†•½Â(Wğ?JòŒŒœQ_W¥¨zÁ;÷ëyÇÎF*¥Š#g£‹K©ûË©äƒ¦Œ“D†Ÿ‚?íãxÎ\I7Nü«Æ©}–ï¬,BşâùöĞ¦>j¹‹¢‹©¥ÅÔı¥f†1~©û¨ûPä¢LãÜ ã¼œ9ïEÃ;Ñ|+^†JBÙ3›ä¬xıQ})ŒsÖµ	s¬ „Ó!æx E.Ê4Ç´ksY,»/(ö­ı!ôÊ=\´É¯MjŞ´ìÿEA'œ¤Û$â_^
+’#à‘qñ*¹(ÓÅKÎ–ÎZ±8[Ò(>˜'vGø¤²AU~ÉTo­c¿³?ü—öcäPv‡ùÃ·¼'ô¤#Íğo(r1`3Ô3pè.I6X&%?ÊT½º—Á¿ÆáıŒ‘(šÚ‰jñÄ‰j&²F>ÃM‘8ı’ø|r”|°\XX9û²œÿ|zò[öTœf?’öŸc=±ŸØ³
+Åœö,[à	úŞlò!_yp9^^LTö6UOTÂc|/Ó@zÄ½Rù›·Ôê†‘s·Ró©Ø=ö×9½é>Ã>1ÓørvÌõÅËÎÃP<£Yt!§êµßßKÿê…ÀFğ—}#½Vänİ—¿İ0«åy®şÜ?ÏQwJpõwNlÑ¤7ús;•·WĞáØ?ÿ÷Ánm  ×xœµRİNÂ0íÆŸcâshÑ0àÖIˆÀ„+MéZ¨®İO»^Ìgá9| µÅ6âäÖ%Û¾sÚ~ß9g[t úÙÔ%h>ÎÇ# üs~ŞàLß@çpÓ12ğI8‘µãí[“ˆ‰•®?jkLsV"E`‰rH“8"¹„Õfåsoò«ÁvÆYU¾ĞJV4ã=}­œÃ©âéš)'²˜ĞŞˆ†ıãğÊ5Û9ÓK	X¤‘`àD¤…ºœFÚı©q³{»Û™j.pŒ¤sá[²õp?›,°²ğdÕKOÿké[«÷i§6íÔ†ÙåM\Ş›fæÃXÜQºTˆ§–ğ«Èúx·€WóÔ’96]jÃÿfztíyğ»>ªº½dÂ(•.U-=Nê"¥r¶,qLÀä¬ïöÆ	~%{å_£LŠ*  6/xœÍ[ûSWŞ@"/ñ—¨4Ñ@,‚l}ğ°uÆÖNŒJ-3Ì’½	k“İ¸ ÓñïîoÚ=»ßÆKšg!×$ãõû’Í.ß=çsŸÙV¥_I&½ÿSURoŠÏxï&½7CŠÒG˜ğpÜÇ$}¦Ìoì«F…3•9z3İ¨»3æìsVªêÜp%Ù'Üp¦ í:jÅcâc’Å­íbë7m«dñ²'`”Ş‘"¯3à™–»¼»Êz•{ô_%x5ÈÆÚÚJË©RUµí=Í¿­|
+İ’øÒú­GwèOÑÕ¾/-JÀ,x6ø^ÿ—oIKıïï´ªiëŠ1·®©/z~xAnˆ|»UXo#¹ŸŒœŸêœä¶ZR;†Zkg¿~ØŒğ"øÅŞ¶_2	Éƒ•Ñ Õª®ÚjÀKà—$pÒŞ×#²+»FÉÑMÃ2â×x?&{É+ÃÀğÉFÜ)™F‰×=	à5ğk6c_‹Ã1F9' JÇDŠW—ï)¿WÕ=^eª¡åM‹5ÔªË™Y>ÖÄ­É˜øÂqÓKuÿÙÛ%K¯S{°.é˜¢t§	¤
+¯6·Ú¨¤2( Š”6ğ¸%QflnÛñrÓ_h94ŸÙïo^¾Ì¡mï²±«6 £>,=±º¶Zi×3‚A‰Íáìi3ÂPğ&¢tºÍ*íz´†˜’‡áaÂQğÑÎIö¥´HM½,vãÀIğIÉë7L9¤qÈÀ™ô!]ÉÔÚ‰¸ œŸ—”¡n0sï/9¬îí¹Æ³9"a½Á½ù‰7¦Hw¸¾%Ùñ#şˆê5·ÜŠëüáøD·œ?TÎÇóàç%9t‰mò²êV¦Û,¦—Ià$p|N²—§+ÜâW½VÚà›fMÕLö$N_ >ÒM§3àSğ§’œX:£Ÿ	ˆ"ÙRºÃk¹%uğuY–Š›øHÔ†€(½!î,¬¢¤Ñyû‘†»1%£i#V©Wi¤£k4?£™–éü>2nàŒâ{„·Àou+pFárÂÛà·{¥mæDéqç`­¿gà¤üéaLÁcBal#5lŠÍeois‡•MëÔ4³Ş¿Û­ƒï	WÀWz¥‘’¨UQzCÜ8¬âw I%¦`a -‚ú[×)‚4nëMÃhaĞW¾Ä~sm‡íÑÆ‘nØj”üÅÃÔèğø#	£õ¶Û›XÛ ı#w¥›$ÿ
+|şVz¨êÆßbÖïÀßukÚ@"~nƒo÷Ê´Dı) Jwr÷DĞ,}|ş¾WÒ#‰úK@©–ŞQ­Š[ã†ÓnOl&
+ d$ì3§5[V	¦ƒ!¢HñéÌ+o(c±6Ûvk,®î[0(áxwîšÛ$íRñx³[‡j­^Û1ÒÌ!œAÌ€ËŞuŒÌÅ$b x¼“[âÕ¾ø+L$k8ŞÁ²x]…0åóW—Ê±U.nHªy`<ıBbÈùÖ1†Ñâ„u
+\ş1ˆXÈ¡ı^ïä1SÆÉº¼~¹[±Cû'¼~¥W$jZ@©–Ü±9W«¶ÑË’yCó§ŞÔ§&?" Š—æ¯_g¯Œê³\ƒñ µ½¹™÷ÏáV°+Á
+;‘vìº‡”<x^R]¦ô2Ëº3Ù,û'¶âËPIşè`&<eÛB\J¯N¸:ûi‘•«®®ı¡Vx&¶Úi($f-RÔÎ2Öìü2i¢éKÓèp-ìÄ#¥_…\ÂYğYIÒ—Sıøºë8¦á©7wK®eyšİ°"Á{¿éø§i„±¹²¾,«K/O8dç/~%ì‘ ü/=èmÛß<LË2şªs™®ã#’ñI’ÛÔ†à¢¤šd3÷üÚl5¼–ÔâFKÓÎ Liùıóà	¥y¼ã•xÈ¼WäÁ·0Í„'İ^ÙKô‘×óÄ®Õ<jBøü¡¤Z¥û_aª…“îrrÈ§Øò®CaïåP¢Ì2å/Œ<«×3®Né‚J|wß„JBÙ¡¸{’zÒİ?@Qˆvw[1C;á >bRD)KĞ×«¿ÅïqóuKox‰4ßP­|Ù¬jÜ²ó‡ùİ;÷Wk?Ş;:\­~<h|(Øåµ;Ş«bä‹ù‚S«ïëÏË5§ç–ï<à÷î¯¬–J«Ëùæ`¾¦ù–L½TĞ"*Ğ^i~’¬qGößÆañ®ÜMö7¼ù…Ã5¶çMšÌÃ£
+7–×˜f2Ãt×t‡.ì«FëóSô›—ğG}øp@3KÅ£:=X	nZ_­zÌ‹á+œJ)óâ1±ƒu‹×U‹{•h¶ å|ş*¯K‹      ‹àb```f`a’¬@&khˆ›®“0XBex˜‰Ñ¨&ÁgÿT–ˆàó¬d`à~‡àK>ªQ d30MâY’—˜›Zd€‡
+gdæU†dæ¦ê$&g'¦§B%à®‰¹90qÎ g^Ai	T€¿´ %±$5.ÌÀğÓ  òŒÏ¶È÷Dğ¹ãPå%¦ù>0şGs4[j^™••!
+Ï…gŒÂ3¸‰`Œb.3Ìoe‰E™‰I9ÀP‚p¥¦¥¥æ%#D’ósŠR‹‹SS@† I¶ˆÊ  <!DOCTYPE html>
+<html>
+<head><title>R: A Time Input Widget for Shiny</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> A Time Input Widget for Shiny
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;shinyTime&rsquo; version 1.0.3</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="shinyTimeExample.html">shinyTimeExample</a></td>
+<td>Show the shinyTime example app</td></tr>
+<tr><td style="width: 25%;"><a href="timeInput.html">timeInput</a></td>
+<td>Create a time input</td></tr>
+<tr><td style="width: 25%;"><a href="updateTimeInput.html">updateTimeInput</a></td>
+<td>Change a time input on the client</td></tr>
+</table>
+</div></body></html>
+@media screen {
+    .container {
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 900px;
+    }
+}
+
+.rimage img { /* from knitr - for examples and demos */
+    width: 96%;
+    margin-left: 2%;
+} 	
+
+.katex { font-size: 1.1em; }
+
+code {
+    color: inherit;
+    background: inherit;
+}
+
+body {
+    line-height: 1.4;
+    background: white;
+    color: black;
+}
+
+a:link {
+    background: white;
+    color: blue;
+}
+
+a:visited {
+    background: white;
+    color: rgb(50%, 0%, 50%);
+}
+
+h1 {
+    background: white;
+    color: rgb(55%, 55%, 55%);
+    font-family: monospace;
+    font-size: 1.4em; /* x-large; */
+    text-align: center;
+}
+
+h2 {
+    background: white;
+    color: rgb(40%, 40%, 40%);
+    font-family: monospace;
+    font-size: 1.2em; /* large; */
+    text-align: center;
+}
+
+h3 {
+    background: white;
+    color: rgb(40%, 40%, 40%);
+    font-family: monospace;
+    font-size: 1.2em; /* large; */
+}
+
+h4 {
+    background: white;
+    color: rgb(40%, 40%, 40%);
+    font-family: monospace;
+    font-style: italic;
+    font-size: 1.2em; /* large; */
+}
+
+h5 {
+    background: white;
+    color: rgb(40%, 40%, 40%);
+    font-family: monospace;
+}
+
+h6 {
+    background: white;
+    color: rgb(40%, 40%, 40%);
+    font-family: monospace;
+    font-style: italic;
+}
+
+img.toplogo {
+    width: 4em;
+    vertical-align: middle;
+}
+
+img.arrow {
+    width: 30px;
+    height: 30px;
+    border: 0;
+}
+
+span.acronym {
+    font-size: small;
+}
+
+span.env {
+    font-family: monospace;
+}
+
+span.file {
+    font-family: monospace;
+}
+
+span.option{
+    font-family: monospace;
+}
+
+span.pkg {
+    font-weight: bold;
+}
+
+span.samp{
+    font-family: monospace;
+}
+
+div.vignettes a:hover {
+    background: rgb(85%, 85%, 85%);
+}
+
+tr {
+    vertical-align: top;
+}
+
+span.rlang {
+    font-family: Courier New, Courier;
+    color: #666666;
+}
+
+// Enclose in IEFE
+(function() {
+// Escape jQuery selector metacharacters: !"#$%&'()*+,./:;<=>?@[\]^`{|}~
+// Copied from shiny/srcjs/utils.js
+var $escape = function(val) {
+  return val.replace(/([!"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~])/g, '\\$1');
+};
+
+var findLabelForElement = function(el) {
+  return($(el).parent().find('label[for="' + $escape(el.id) + '"]'));
+};
+
+var clamp = function(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+};
+
+var inRange = function(num, min, max) {
+  return (num >= min && num <= max);
+};
+
+var zeroPad = function(num) {
+  return (num < 10 ? '0' + num: num);
+};
+
+var correctInputValue = function(el) {
+  var $el = $(el);
+  var val = parseFloat($el.val());
+  // Check if number is integer, if so put to fixed form (0.1e1 will become 1), else make 0
+  var newVal = (val % 1 === 0) ? val.toFixed() : 0;
+  // Make 0 if out of range, alternative would be clamping.
+  if($el.hasClass('shinytime-hours')) {
+   newVal = inRange(newVal, 0, 23) ? newVal : 0;
+  } else {
+   newVal = inRange(newVal, 0, 59) ? newVal : 0;
+  }
+  // correct minute step
+  if($el.hasClass('shinytime-mins')){
+    var step = $el.attr("step");
+    if(step && step != 1) {
+      newVal = inRange(newVal, 0, 55) ? Math.round(newVal / step) * step : 55;
+    }
+  }
+  // Zero pad and update value
+  $el.val(zeroPad(newVal));
+};
+
+// From https://stackoverflow.com/a/48512262/1439843
+var roundTime = function(value, minutesToRound) {
+
+  let roundTimeDate = (date) => {
+    let ms = 1000 * 60 * minutesToRound; // convert minutes to ms
+    return new Date(Math.round((new Date(date)).getTime() / ms) * ms);
+  };
+
+  roundedDate = roundTimeDate((new Date()).setHours(value.hour, value.min, value.sec));
+  return {hour: zeroPad(roundedDate.getHours()), min: zeroPad(roundedDate.getMinutes()), sec: zeroPad(roundedDate.getSeconds())};
+};
+
+var timeInputBinding = new Shiny.InputBinding();
+
+$.extend(timeInputBinding, {
+  find: function(scope) {
+    return $(scope).find('.my-shiny-time-input');
+  },
+  getValue: function(el) {
+    var $inputs = $(el).find('input');
+    var values = [];
+    $inputs.each(function() {
+      numberVal = $(this).val();
+      // Number parsing logic taken from shiny/srcjs/input_binding_number.js
+      if (/^\s*$/.test(numberVal))  // Return null if all whitespace
+        values.push(null);
+      else if (!isNaN(numberVal))   // If valid Javascript number string, coerce to number
+        values.push(+numberVal);
+      else
+        values.push(numberVal);
+    });
+    return {
+      hour: values[0],
+      min:  values[1],
+      sec:  (values.length > 2) ? values[2] : 0
+    };
+  },
+  setValue: function(el, value) {
+    var $inputs = $(el).find('input');
+    minuteSteps = $inputs.eq(1).attr("step");
+    if(minuteSteps && minuteSteps != 1) value = roundTime(value, minuteSteps);
+    $inputs.eq(0).val(value.hour);
+    $inputs.eq(1).val(value.min);
+    $inputs.eq(2).val(value.sec);
+  },
+  receiveMessage: function(el, data) {
+    // To get updateTimeInput working
+    if (data.hasOwnProperty('label')) findLabelForElement(el).text(data.label);
+    if (data.hasOwnProperty('value')) this.setValue(el, data.value);
+    $(el).trigger('change');
+  },
+  getState: function(el) {
+    return {
+      label: findLabelForElement(el).text(),
+      value: this.getValue(el)
+    };
+  },
+  getType: function() {
+    // Necessary to get the registerInputHandler working
+    return "my.shiny.timeInput";
+  },
+  subscribe: function(el, callback) {
+    $(el).on("change.timeInputBinding", function(e) {
+      correctInputValue(e.target);
+      callback();
+    });
+  },
+  unsubscribe: function(el) {
+    $(el).off(".timeInputBinding");
+  }
+});
+
+Shiny.inputBindings.register(timeInputBinding, 'my.shiny.timeInput');
+})();
